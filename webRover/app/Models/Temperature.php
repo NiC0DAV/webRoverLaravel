@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Temperature extends Model
 {
     use HasFactory;
+
+    public function Temperature(){
+        return $this->belongsTo('App\Models\Crops', 'id_cultivo');
+    }
 }
