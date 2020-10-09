@@ -9,6 +9,8 @@ class Brightness extends Model
 {
     use HasFactory;
 
+    protected $table = 'brightness';
+
     public function Brightness(){
         return $this->belongsTo('App\Models\Crops', 'id_cultivo');
     }

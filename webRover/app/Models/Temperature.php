@@ -9,6 +9,8 @@ class Temperature extends Model
 {
     use HasFactory;
 
+    protected $table = 'temperatures';
+
     public function Temperature(){
         return $this->belongsTo('App\Models\Crops', 'id_cultivo');
     }
