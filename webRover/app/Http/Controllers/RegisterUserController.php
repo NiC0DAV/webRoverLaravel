@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use App\Models\User;
 
-class UserController extends Controller
+class RegisterUserController extends Controller
 {
+    //
     public function register(Request $request){
         $json = $request->input('json', null);
         $params = json_decode($json);
@@ -67,8 +66,4 @@ class UserController extends Controller
         return response()->json($dataMessage, $dataMessage['code']);
 
     }
-
-    // public function login(){
-        
-    // }
 }
