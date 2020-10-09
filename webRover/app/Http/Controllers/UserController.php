@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\User;
-use App\Http\Middleware\Authenticate;
 
 class UserController extends Controller
 {
@@ -59,13 +58,13 @@ class UserController extends Controller
             $dataMessage = array(
                 'code' => 400,
                 'status' => 'Error',
-                'message' => 'The was a problem with the entered data'
+                'message' => 'There was a problem with the entered data'
             );
          }
 
         $params_array = array_map('trim', $params_array);
 
-        return response()->json($data, $data['code']);
+        return response()->json($dataMessage, $dataMessage['code']);
 
     }
 }
