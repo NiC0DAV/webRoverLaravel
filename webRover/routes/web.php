@@ -18,4 +18,7 @@ Route::get('/', function () {
 });
 //Rutas del API
     //Rutas UserMethods
-    Route::post('/api/register', 'App\Http\Controllers\UserController@register');
+    Route::post('/user/register', 'App\Http\Controllers\RegisterUserController@register');
+    Route::post('/user/login', 'App\Http\Controllers\LoginUserController@login');
+    Route::resource('/user', 'App\Http\Controllers\UserController');
+    

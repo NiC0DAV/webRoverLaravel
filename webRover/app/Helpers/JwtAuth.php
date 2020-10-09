@@ -10,7 +10,7 @@ class JwtAuth{
 
     public $key;
 
-    public function __contruct(){
+    public function __construct(){
         $this->key = '461958USBBOG';
     }
 
@@ -32,11 +32,10 @@ class JwtAuth{
         if($signUp){
             $token = array(
                 'sub' => $user->id,
+                'email' => $user->email,
                 'name' => $user->name,
                 'surname' => $user->surname,
                 'identification' => $user->identification,
-                'contactNumber' => $user->contactNumber,
-                'email' => $user->email,
                 'iat' => time(), //Fecha de creacion del token
                 'exp' => time()+(7*24*60*60) //Fecha de expiracion
             );
