@@ -106,10 +106,15 @@ class UserController extends Controller
     }
 
     public function userUpdate(Request $request){
+        $token = $request->header('Authorization');
+        $jwtAuth = new \JwtAuth();
+        $checkToken = $jwtAuth->checkToken($token);
+
         $json = $request->input('json',null);
         $params_array = json_decode($json,true);
 
         if ($checkToken && !empty($params_array)) {
+
             $user = $jwtAuth->checkToken($token, true);
 
             $validateData = \Validator::make($params_array, [
@@ -128,21 +133,21 @@ class UserController extends Controller
 
             $user_update = User::where('id', $user->sub)->update($params_array);
             
-            $data = array(
+            $dataMessage = array(
                 'code' => 200,
                 'status' => 'Success',
                 'user' => $user,
                 'changes' => $params_array
             );
         }else{
-            $data = array(
+            $dataMessage = array(
                 'code' => 400,
                 'status' => 'Error',
                 'message' => 'Error el usuario no esta identificado'
             );
         }
 
-        return response()->json($data, $data['code']);
+        return response()->json($dataMessage, $dataMessage['code']);
     }
 
 }

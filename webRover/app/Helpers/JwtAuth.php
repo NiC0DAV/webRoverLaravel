@@ -11,7 +11,7 @@ class JwtAuth{
     public $key;
 
     public function __construct(){
-        $this->key = '461958USBBOG';
+        $this->key = 'ROVERAGRICULTORUSBBOG';
     }
 
     public function signUp($email, $password, $getToken = null){

@@ -20,5 +20,9 @@ Route::get('/', function () {
     //Rutas UserMethods
     Route::post('/user/register', 'App\Http\Controllers\UserController@userRegister');
     Route::post('/user/login', 'App\Http\Controllers\UserController@userLogin');
-    Route::post('/user/update', 'App\Http\Controllers\UserController@userUpdate');
+    Route::put('/user/update', 'App\Http\Controllers\UserController@userUpdate');
+
+    Route::resource('/greenhouse', 'App\Http\Controllers\GreenHouseController');
+
+    // ->middleware(App\Http\Middleware\ApiAuthMiddleware::class); para validacion mas seguro con uploads
     
