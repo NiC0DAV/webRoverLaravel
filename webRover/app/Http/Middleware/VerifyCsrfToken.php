@@ -15,6 +15,8 @@ class VerifyCsrfToken extends Middleware
         //
         'user/register',
         'user/login',
-        'user/update'
+        'user/update',
+        'greenhouse/all',
+        'greenhouse'
     ];
 }
